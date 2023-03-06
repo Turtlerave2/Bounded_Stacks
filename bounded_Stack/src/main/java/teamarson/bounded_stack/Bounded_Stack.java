@@ -11,7 +11,44 @@ package teamarson.bounded_stack;
  */
 public class Bounded_Stack {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+   private Node first;
+    private int size;
+
+    public Bounded_Stack() {
+        first = null;
+        size = 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+
+    public boolean push(String value) {
+        Node newNode = new Node(value);
+        
+        newNode.next = first;
+        first = newNode;
+        
+        size++;
+        return true;
+        
+    }
+    
+      private static class Node {
+
+        private String data;
+        private Node next;
+
+        public Node(String data) {
+            this.data = data;
+            this.next = null;
+
+        }
+
+        public boolean hasNext() {
+            return next == null;
+        }
+
     }
 }
