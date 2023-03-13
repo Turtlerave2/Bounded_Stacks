@@ -20,102 +20,55 @@ public class Stack {
         size = 0;
     }
 
-    public int size() {
-        return size;
-    }
-
-
-    public boolean push(String value) {
+    public boolean push(int value) {
         Node newNode = new Node(value);
-        
-        newNode.next = first;
-        first = newNode;
-        
+        if (first == null) {
+            first = newNode;
+        } else {
+            newNode.next = first;
+            first = newNode;
+        }
         size++;
         return true;
-        
     }
 
-    public String get(int pos) {
-
-        String word = null;
-        int tracker = 0;
-
-        if (pos >= size || pos < 0) {
-            throw new IndexOutOfBoundsException("Illegal position supplied");
+    public int peek() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
         }
-        Node current = first;
-        while (current != null) {
-
-            if (tracker == pos) {
-                word = current.data;
-            }
-            current = current.next;
-            tracker++;
-        }
-
-        return word;
-
+        return first.data;
     }
 
-    public int indexOf(String word) {
-
-        int count = 0;
-        if (word == null) {
-            throw new IllegalArgumentException("word is empty");
+    public int pop() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
         }
-
-        if (size == 0) {
-            throw new NullPointerException("notin here");
-        }
-
-        Node current = first;
-        while (current.next != null) {
-
-            if (current.data.contains(word)) {
-                return count;
-            }
-            count++;
-            current = current.next;
-        }
-
-        return -1;
-
+        int original = first.data;
+        first = first.next;
+        size--;
+        return original;
     }
-
 
     public boolean isEmpty() {
         return first == null;
     }
 
-    public Node Peek() {
-        if (isEmpty() == true) {
-            throw new EmptyStackException();
-        }
-        Node current = first;
-        return current;
+    public int count() {
+        return size;
     }
 
-    public void clear() {
-        first = null;
-        size = 0;
+    public void printCelebrate() {
+        System.out.println("Celebrate good times come on!");
     }
 
     protected static class Node {
 
-        protected String data;
+        protected int data;
         protected Node next;
 
-        public Node(String data) {
-            this.data = data;
+        public Node(int value) {
+            this.data = value;
             this.next = null;
-
         }
-
-        public boolean hasNext() {
-            return next == null;
-        }
-
     }
-
 }
