@@ -12,8 +12,8 @@ import java.util.EmptyStackException;
  */
 public class Stack {
 
-    private Node first;
-    private int size;
+    protected Node first;
+    protected int size;
 
     public Stack() {
         first = null;
@@ -101,10 +101,10 @@ public class Stack {
         size = 0;
     }
 
-    private static class Node {
+    protected static class Node {
 
-        private String data;
-        private Node next;
+        protected String data;
+        protected Node next;
 
         public Node(String data) {
             this.data = data;
