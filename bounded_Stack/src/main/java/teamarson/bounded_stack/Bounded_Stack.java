@@ -15,7 +15,7 @@ public class Bounded_Stack {
 
    private Node first;
     private int size;
-
+   
     public Bounded_Stack() {
         first = null;
         size = 0;
@@ -101,6 +101,8 @@ public class Bounded_Stack {
         first = null;
         size = 0;
     }
+    
+    
     
       private static class Node {
 
