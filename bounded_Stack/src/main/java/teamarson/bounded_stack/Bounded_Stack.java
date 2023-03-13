@@ -11,7 +11,7 @@ package teamarson.bounded_stack;
 public class Bounded_Stack extends Stack {
 
     private static final int DEFAULT_CAPACITY = 10;
-    private int capacity;
+    private final int capacity;
 
     public Bounded_Stack() {
         super();
