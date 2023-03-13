@@ -57,9 +57,6 @@ public class Stack {
         return size;
     }
 
-    public void printCelebrate() {
-        System.out.println("Celebrate good times come on!");
-    }
 
     protected static class Node {
 
